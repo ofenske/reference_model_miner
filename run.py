@@ -11,6 +11,9 @@ import copy
 def execute_mcc(input_path: str, output_path: str, threshold) -> None:
     """Method to execute the MCC algorithm on the global input models
 
+    :parameter input_path: The path to the folder which contains the input files
+    :parameter output_path: Location where you want to save the output model
+    :parameter threshold: The threshold to use for the algorithm
     :return: None
     """
     # set the path to directory where all xml files of the input models are located
@@ -61,6 +64,9 @@ def execute_mcc(input_path: str, output_path: str, threshold) -> None:
 def execute_mcc_views(input_path: str, output_path: str, threshold: float) -> None:
     """Method to execute the MCC-views algorithm on the single views of the input models
 
+    :parameter input_path: The path to the folder which contains the input files
+    :parameter output_path: Location where you want to save the output model
+    :parameter threshold: The threshold to use for the algorithm
     :return: None
     """
     # set the path to directory where all xml files of the input models are located
@@ -170,7 +176,9 @@ def execute_mcc_views(input_path: str, output_path: str, threshold: float) -> No
 def execute_refpa(input_path: str, output_path: str):
     """Method to execute the RefPa algorithm on the global input models
 
-    :return:
+    :parameter input_path: The path to the folder which contains the input files
+    :parameter output_path: Location where you want to save the output model
+    :return: None
     """
     # initialize refpa algorithm
     refpa_algorithm = RefPaGlobal(input_path)
@@ -220,7 +228,9 @@ def execute_refpa(input_path: str, output_path: str):
 def execute_refpa_views(input_path: str, output_path: str):
     """Method to execute the RefPa-views algorithm on the single views of the input models
 
-    :return:
+    :parameter input_path: The path to the folder which contains the input files
+    :parameter output_path: Location where you want to save the output model
+    :return: None
     """
     # initialize refpa algorithm
     refpa_views_algorithm = RefPaViews(input_path)
@@ -282,7 +292,10 @@ def execute_refpa_views(input_path: str, output_path: str):
 def execute_combined_views(input_path: str, output_path: str, threshold: float):
     """Method to execute the RefPa-views algorithm on the single views of the input models
 
-    :return:
+    :parameter input_path: The path to the folder which contains the input files
+    :parameter output_path: Location where you want to save the output model
+    :parameter threshold: The threshold to use for the algorithm
+    :return: None
     """
     # initialize refpa algorithm
     ream_miner = ReamMiner(input_path, threshold)
@@ -343,23 +356,9 @@ def execute_combined_views(input_path: str, output_path: str, threshold: float):
 if __name__ == '__main__':
     """Main method for run file. Here you have to uncomment the algorithm you want to execute.
     """
-    # AML
-    execute_mcc(r'data/input_data/AML', r'data/results/mcc_global/AML', 4.0)
-    execute_mcc_views(r'data/input_data/AML', r'data/results/mcc_views/AML', 4.0)
-    execute_refpa(r'data/input_data/AML', r'data/results/refpa_global/AML')
-    execute_refpa_views(r'data/input_data/AML', r'data/results/refpa_views/AML')
-    execute_combined_views(r'data/input_data/AML', r'data/results/combined_views/AML', 4.0)
 
-    # KYC
-    execute_mcc(r'data/input_data/KYC', r'data/results/mcc_global/KYC', 4.0)
-    execute_mcc_views(r'data/input_data/KYC', r'data/results/mcc_views/KYC', 4.0)
-    execute_refpa(r'data/input_data/KYC', r'data/results/refpa_global/KYC')
-    execute_refpa_views(r'data/input_data/KYC', r'data/results/refpa_views/KYC')
-    execute_combined_views(r'data/input_data/KYC', r'data/results/combined_views/KYC', 4.0)
-
-    # SSH
-    execute_mcc(r'data/input_data/SSH', r'data/results/mcc_global/SSH', 4.0)
-    execute_mcc_views(r'data/input_data/SSH', r'data/results/mcc_views/SSH', 4.0)
-    execute_refpa(r'data/input_data/SSH', r'data/results/refpa_global/SSH')
-    execute_refpa_views(r'data/input_data/SSH', r'data/results/refpa_views/SSH')
-    execute_combined_views(r'data/input_data/SSH', r'data/results/combined_views/SSH', 4.0)
+    execute_mcc(r'path/to/you/data/folder', r'path/for/output/file', 4.0)
+    #execute_mcc_views(r'data/input_data/AML', r'data/results/mcc_views/AML', 4.0)
+    #execute_refpa(r'data/input_data/AML', r'data/results/refpa_global/AML')
+    #execute_refpa_views(r'data/input_data/AML', r'data/results/refpa_views/AML')
+    #execute_combined_views(r'data/input_data/AML', r'data/results/combined_views/AML', 4.0)
